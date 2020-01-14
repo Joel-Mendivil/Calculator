@@ -23,12 +23,20 @@
         <!--Clear and Delete Buttons-->
         <div class="row">
             <div class="col-1-1" id="clearDelete">
-                <button class="deleteButton" id="delete">DEL</button>
+                <button class="deleteButton" id="delete" onclick="backspace()">DEL</button>
                 <button class="clearButton" id="clear" onclick="clearButton()">CLR</button>
             </div>
         </div>
 
         <!--Rows for all the number buttons-->
+        <div class="row">
+            <div class="col-1-1">
+                <button class="operator">1/x</button>
+                <button class="operator">x^2</button>
+                <button class="operator">√x</button>
+                <button class="operator">CE</button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-1-1">
                 <button class="num-button" onclick="setValue(7)">7</button>
@@ -56,8 +64,8 @@
         <div class="row">
             <div class="col-1-1">
                 <button class="num-button" onclick="setValue(0)">0</button>
-                <button class="operator">.</button>
-                <button class="operator">=</button>
+                <button class="operator" onclick="setDecimal()">.</button>
+                <button class="operator" id="equals" onclick="equalClick()">=</button>
                 <button class="operator" onclick="setOperator(1)">+</button>
             </div>
         </div>

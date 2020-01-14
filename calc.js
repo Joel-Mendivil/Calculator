@@ -6,6 +6,7 @@ var operator; //store the value of our operator
 var flag = false; //false if we haven't use an operator yet
 var display = document.getElementById("display");
 var equalTo = false; //false if we haven't pressed the equals button
+var opString = "";
 
 //calculator
 
@@ -38,7 +39,6 @@ function setValue(number){
 
 function setOperator(number){
     operator = number;
-    var opString = "";
     flag = true;
 
     //a bunch of ifs and if elses to place the correct operator
@@ -48,7 +48,7 @@ function setOperator(number){
     }
     else if(operator === 3){
         display.innerHTML += " * ";
-        opString = "*";
+        opString = "x";
     }
     else if(operator === 2){
         display.innerHTML += " - ";
@@ -83,4 +83,88 @@ function clearButton(){
     num2 = "";
     flag = false;
     equalTo = false;
+}
+
+//function to solve the math equation
+function equalClick(){
+    equalTo = true;
+    num1 = parseFloat(num1); //turns num1 from a string to a number
+    num2 = parseFloat(num2); //turns num2 from a string to a number
+    var result = "";
+    var roundedResult = "";
+
+    if(operator === 1){
+        result = num1 + num2;
+    }
+    else if(operator === 2){
+        result = num1 - num2;
+    }
+    else if(operator === 3){
+        result = num1 * num2;
+    }
+    else{
+        result = num1 / num2;
+    }
+
+    roundedResult = result.toFixed(4);
+    display.innerHTML = roundedResult;
+
+    if(roundedResult === "Infinity"){
+        display.innerHTML = "You cannot divide by zero";
+    }
+    if(roundedResult === "NaN"){
+        display.innerHTML = "Invalid calculation";
+    }
+}
+
+//function to remove a number or operator
+function backspace(){
+    var temp1 = "";
+    var temp2 = "";
+
+    if(equalTo === true){
+        clearButton();
+    }
+
+    if(flag === false){
+        temp1 = num1.substring(0, num1.length - 1);
+        num1 = temp1;
+        display.innerHTML = num1;
+    }
+
+    else if(flag === true){
+        display.innerHTML = num1;
+        flag = false;
+    }
+
+    if(num2 !== ""){
+        temp2 = num2.substring(0, num2.length - 1);
+        num2 = temp2;
+        flag = true;
+        display.innerHTML = num1 + opString + num2;
+    }
+}
+
+function setDecimal(){
+    if(flag === false){
+        if(num1 === ""){
+            num1 = "0.";
+            display.innerHTML = num1;
+        }
+        if(num1.indexOf(".") === -1){
+            num1 += ".";
+            display.innerHTML = num1;
+        }
+    }
+
+    if(flag === true){
+        if(num2 === ""){
+            num2 = "0.";
+            display.innerHTML += num2;
+        }
+        if(num2.indexOf(".") === -1){
+            num2 += ".";
+            display.innerHTML = num1 + opString + num2;
+        }
+    }
 }
