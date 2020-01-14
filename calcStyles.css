@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body{
+    background: white;
+    background: darkblue;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+html{
+    height: 100%;
+}
+/* header */
+
+.header{
+    text-align: center;
+    background-color: rgb(0, 191, 255);
+    border: gold solid 5px;
+    padding: 5px 0px;
+    margin: 10px 0px;
+}
+h1{
+    margin: 10px 0px;
+    font-size; 40px;
+}
+/* calculator container */
+
+#calculator{
+    width: 419px;
+    height: auto;
+    margin: 30px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: gold;
+    padding-top: 20px;
+}
+
+/* dipslay, clear, and delete */
+
+#display{
+    border: solid 2px darkblue;
+    height: 45px;
+    padding: 5px;
+    text-align: right;
+    float: none;
+    margin: 0 auto;
+    background-color: rgb(0, 191, 255);
+    border-radius: 7px;
+    transition: cubic-bezier();
+}
+
+#clear, #delete{
+    height: 50px;
+    border-radius: 10px;
+    background-color: darkblue;
+    text-align: center;
+    margin: 20px 16px 0px 0px;
+    color: gold;
+}
+
+#clearDelete{
+    width: 100%;
+}
+
+/* number rows */
+
+button{
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: darkblue;
+    font-size: 30px;
+    color: gold;
+}
+
+button:hover{
+    background-color: rgb(0, 191, 255);
+    color: darkblue;
+}
+
+.operator{
+    background-color: rgb(0, 191, 255);
+    color: darkblue;
+}
+
+.operator:hover{
+    background-color: darkblue;
+    color: gold;
+}
+
+#equals{
+    background-color: white;
+    color: darkblue;
+}
