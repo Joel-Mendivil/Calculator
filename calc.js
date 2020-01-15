@@ -48,7 +48,7 @@ function setOperator(number){
     }
     else if(operator === 3){
         display.innerHTML += " * ";
-        opString = "x";
+        opString = "*";
     }
     else if(operator === 2){
         display.innerHTML += " - ";
@@ -61,6 +61,7 @@ function setOperator(number){
 
     //only allows for 1 operator at a time
     if(flag === true){
+        num2 = "";
         display.innerHTML = num1 + opString;
     }
 
@@ -110,7 +111,7 @@ function equalClick(){
     display.innerHTML = roundedResult;
 
     if(roundedResult === "Infinity"){
-        display.innerHTML = "You cannot divide by zero";
+        display.innerHTML = "Cannot divide by zero";
     }
     if(roundedResult === "NaN"){
         display.innerHTML = "Invalid calculation";
@@ -166,5 +167,62 @@ function setDecimal(){
             num2 += ".";
             display.innerHTML = num1 + opString + num2;
         }
+    }
+}
+
+//function to set the inverse of x
+function setInverse(){
+    if(equalTo === true){
+        clearButton();
+    }
+    if(flag === false){
+        num1 = 1/num1;
+        display.innerHTML = num1;
+        equalTo = true;
+    }
+    if(flag === true){
+        display.innerHTML = "Can't do two variables";
+    }
+    if(num1 === 1/0){
+        display.innerHTML = "Can't divide by zero";
+    }
+}
+
+//function to set CE
+function setCe(){
+    if(flag === false){
+        clearButton();
+    }
+    if(flag === true){
+        num2 = "";
+        display.innerHTML = num1 + opString;
+    }
+}
+
+//function to set x squared
+function setX2(){
+    if(equalTo === true){
+        clearButton();
+    }
+    if(flag === false){
+        num1 = Math.pow(num1,2);
+        display.innerHTML = num1;
+        equalTo = true;
+    }
+    if(flag === true){
+        num2 = Math.pow(num2,2);
+        display.innerHTML = num2; 
+    }
+}
+
+//function to set the square root of x
+function setSquare2(){
+    if(equalTo === true){
+        clearButton();
+    }
+    if(flag === false){
+        num1 = Math.sqrt(num1,2);
+        display.innerHTML = num1;
+        equalTo = true;
     }
 }
